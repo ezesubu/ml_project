@@ -1,3 +1,5 @@
+#I want to create an application helps to  learn Spanish using speech to text (STT) 
+
 # WebSpeechAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
