@@ -1,12 +1,5 @@
 <div class="center">
-  <mat-form-field>
-    <mat-select placeholder="Select your language"
-                [(ngModel)]="currentLanguage" [disabled]="recognizing">
-      <mat-option *ngFor="let language of languages" [value]="language" (click)="onSelectLanguage(language)">
-        {{language}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  {{world.name}}
 </div>
 
 <div class="center">
@@ -21,5 +14,5 @@
     <textarea matInput [value]="finalTranscript" placeholder="Speech Input Result" rows="15" disabled="true"></textarea>
   </mat-form-field>
 </form>
-
+<div *ngIf="assert">Content to render when condition is true.</div>
 <mat-card *ngIf="notification" class="notification">{{notification}}</mat-card>

@@ -4,6 +4,7 @@ import { SpeechRecognizerService } from './shared/services/speech-recognizer.ser
 import { SpeechNotification } from './shared/model/speech-notification';
 import { SpeechError } from './shared/model/speech-error';
 import { ActionContext } from './shared/model/strategy/action-context';
+import { WorldService } from './shared/services/world.service';
 
 @Component({
   selector: 'wsa-web-speech',
@@ -15,18 +16,22 @@ export class WebSpeechComponent implements OnInit {
   finalTranscript = '';
   recognizing = false;
   notification: string;
-  languages: string[] =  ['en-US', 'es-ES'];
   currentLanguage: string;
   actionContext: ActionContext = new ActionContext();
+  assert = false;
+  world;
 
   constructor(private changeDetector: ChangeDetectorRef,
-              private speechRecognizer: SpeechRecognizerService) { }
+              private speechRecognizer: SpeechRecognizerService,
+              private WorldService: WorldService) { }
 
   ngOnInit() {
-    this.currentLanguage = this.languages[0];
+    this.currentLanguage = 'es-ES';
     this.speechRecognizer.initialize(this.currentLanguage);
     this.initRecognition();
     this.notification = null;
+    this.world = this.WorldService.getItem();
+    
   }
 
   startButton(event) {
@@ -38,10 +43,6 @@ export class WebSpeechComponent implements OnInit {
     this.speechRecognizer.start(event.timeStamp);
   }
 
-  onSelectLanguage(language: string) {
-    this.currentLanguage = language;
-    this.speechRecognizer.setLanguage(this.currentLanguage);
-  }
 
   private initRecognition() {
     this.speechRecognizer.onStart()
@@ -63,6 +64,11 @@ export class WebSpeechComponent implements OnInit {
         const message = data.content.trim();
         if (data.info === 'final_transcript' && message.length > 0) {
           this.finalTranscript = `${this.finalTranscript}\n${message}`;
+          if(message == this.world.name){
+            this.assert = true;
+            this.world = this.WorldService.getItem();
+            
+          }
           this.actionContext.processMessage(message, this.currentLanguage);
           this.detectChanges();
           this.actionContext.runAction(message, this.currentLanguage);
@@ -74,7 +80,7 @@ export class WebSpeechComponent implements OnInit {
         switch (data.error) {
           case SpeechError.BLOCKED:
           case SpeechError.NOT_ALLOWED:
-            this.notification = `Cannot run the demo.
+            this.notification = `Cannot run the game.
             Your browser is not authorized to access your microphone. Verify that your browser has access to your microphone and try again.
             `;
             break;

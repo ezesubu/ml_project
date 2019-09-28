@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material/material.module';
 import { SpeechRecognizerService } from './shared/services/speech-recognizer.service';
 import { SpeechSynthesizerService } from './shared/services/speech-synthesizer.service';
+import { WorldService } from './shared/services/world.service';
 import { WebSpeechComponent } from './web-speech.component';
 
 @NgModule({
   imports: [
-    CommonModule,
+  CommonModule,
     FormsModule,
     MaterialModule
   ],
@@ -17,7 +18,8 @@ import { WebSpeechComponent } from './web-speech.component';
   ],
   providers: [
     SpeechRecognizerService,
-    SpeechSynthesizerService
+    SpeechSynthesizerService,
+    WorldService
   ]
 })
 export class WebSpeechModule { }
