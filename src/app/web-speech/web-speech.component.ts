@@ -66,8 +66,11 @@ export class WebSpeechComponent implements OnInit {
           this.finalTranscript = `${this.finalTranscript}\n${message}`;
           if(message == this.world.name){
             this.assert = true;
+            alert("Congratulations... you did!!")
             this.world = this.WorldService.getItem();
             
+          }else{
+             alert("you said "+ message +" \n try again!" )
           }
           this.actionContext.processMessage(message, this.currentLanguage);
           this.detectChanges();

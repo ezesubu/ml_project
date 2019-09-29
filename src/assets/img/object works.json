@@ -1,0 +1,21 @@
+    [
+    {name: "guitarra", phonetic: "ˈsol"},
+    {name: "manzana", phonetic: "mãn.ˈsa.na"},
+    {name: "pera", phonetic: "ˈpɛ.ɾa"},
+    {name: "agua", phonetic: "ˈa.ɣwa"},
+    {name: "leon", phonetic: "ˈle.õn"},
+    {name: "meditacion", phonetic: "me.ði.ˈta.sjõn"},
+    {name: "silla", phonetic: "ˈsi.ʝa"},
+    {name: "telefono", phonetic: "te.le.ˈfo.no"},
+    {name: "bicicleta", phonetic: "bi.si.ˈklɛ.ta"},
+    {name: "pajaro", phonetic: "pa.ˈxa.ɾo"},
+    {name: "carro", phonetic: "ˈka.ro"},
+    {name: "tren", phonetic: "ˈtɾɛ̃n"},
+    {name: "maleta", phonetic: "ma.ˈlɛ.ta"},
+    {name: "avion", phonetic: "ˈa.βjõn"},
+    {name: "niño", phonetic: "ˈni.ɲo"},
+    {name: "niña", phonetic: "ˈni.ɲa"},
+    {name: "celular", phonetic: "se.lu.ˈlaɾ"},
+    {name: "raton", phonetic: "ˈra.tõn"},
+    {name: "sol", phonetic: "ˈsol"}
+]

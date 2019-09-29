@@ -1,5 +1,8 @@
 <div class="center">
-  {{world.name}}
+ <h1>{{world.name}}</h1>
+ <div class="img" >
+   <img [src]="world.img">
+ </div> 
 </div>
 
 <div class="center">
@@ -14,5 +17,4 @@
     <textarea matInput [value]="finalTranscript" placeholder="Speech Input Result" rows="15" disabled="true"></textarea>
   </mat-form-field>
 </form>
-<div *ngIf="assert">Content to render when condition is true.</div>
 <mat-card *ngIf="notification" class="notification">{{notification}}</mat-card>
